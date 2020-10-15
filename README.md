@@ -21,7 +21,7 @@ Here's a simple Flask example.
 ```python
 
 from flask import Flask, request, jsonify
-from python_resumable import FlaskUploader
+from python_resumable import UploaderFlask
 
 
 app = Flask(__name__)
@@ -38,7 +38,7 @@ def check_status():
         'resumableChunkNumber': request.args.get('resumableChunkNumber')
     }
 
-    resumable = FlaskUploader(resumable_dict,
+    resumable = UploaderFlask(resumable_dict,
                               '/home/user/uploads',
                               '/home/user/tmp',
                               request.files['file'])
@@ -60,7 +60,7 @@ def upload_file():
         'resumableChunkNumber': request.form.get('resumableChunkNumber')
     }
 
-    resumable = FlaskUploader(resumable_dict,
+    resumable = UploaderFlask(resumable_dict,
                               '/home/user/uploads',
                               '/home/user/tmp',
                               request.files['file'])
